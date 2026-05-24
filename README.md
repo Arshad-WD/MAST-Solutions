@@ -1,10 +1,35 @@
-# MAST-Solutions
+# MAST Solutions | Studio Blueprint
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+A high-performance, brutalist editorial web architecture designed for digital agencies, automation studios, and technical operators. Built to bypass standard template bloat, this repository contains a custom Next.js front-end with kinetic typography, seamless scroll-spying, and high-conversion UX patterns.
+
+## Tech Stack & Architecture
+
+- **Framework**: [Next.js 15+](https://nextjs.org/) (App Router)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/) with a bespoke brutalist / high-contrast design system.
+- **Animations**: [Framer Motion](https://www.framer.com/motion/) for micro-interactions and layout transitions.
+- **Scroll Engine**: [GSAP ScrollTrigger](https://gsap.com/docs/v3/Plugins/ScrollTrigger/) for complex, pinned vertical timeline sequences.
+- **Components**: Radix UI / Shadcn primitives customized for editorial aesthetics.
+
+## Key Features
+
+- **Dynamic Island TOC**: A custom built floating index that natively tracks the user's scroll position across GSAP-pinned slide sections, providing seamless jump navigation.
+- **Kinetic Editorial Menus**: Massive typography-driven hover menus replacing standard tabs.
+- **Brutalist "Wall of Love"**: Testimonial ledgers that invert to high-contrast dark modes on interaction.
+- **Frictionless Pipelines**: Custom contact form integration loops for rapid client onboarding.
 
 ## Getting Started
 
-First, run the development server:
+First, install the dependencies:
+
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
@@ -12,27 +37,18 @@ npm run dev
 yarn dev
 # or
 pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Check the `.env.example` file (if present) for required environment configuration, particularly for any form endpoints, email automation triggers, or CRM webhook integrations you plan to connect.
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
+This architecture is optimized for zero-config deployments on [Vercel](https://vercel.com/new).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+All rights reserved by MAST Solutions.
