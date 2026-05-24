@@ -1,26 +1,143 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  --color-paper: #F4F0EA;
+  --color-ink: #121824;
+  
+  --color-primary: #121824;
+  --color-primary-foreground: #F4F0EA;
+  
+  --color-accent: #C65135;
+  --color-accent-hover: #A53F25;
+  --color-accent-foreground: #F4F0EA;
+  
+  --color-muted: #626875;
+  --color-border-ink: rgba(18, 24, 36, 0.15);
+  
+  --font-serif: var(--font-instrument-serif), Georgia, serif;
+  --font-sans: var(--font-outfit), sans-serif;
+  --font-mono: var(--font-space-mono), monospace;
+  
+  --animate-fade-in-up: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-draw-line: draw-line 1.2s ease-out forwards;
+  
+  --animate-marquee: marquee var(--duration) infinite linear;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  @keyframes marquee-vertical {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(calc(-100% - var(--gap)));
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
+
+@keyframes draw-line {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+:root {
+  --background: #F4F0EA;
+  --foreground: #121824;
+  --muted: #626875;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem; /* account for sticky navbar */
+  background-color: #F4F0EA;
+}
+
+body {
+  background-color: #F4F0EA;
+  color: #121824;
+  font-family: var(--font-outfit), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Custom Text Selection */
+::selection {
+  background-color: #C65135;
+  color: #F4F0EA;
+}
+
+/* Custom minimal scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F4F0EA;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(18, 24, 36, 0.2);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C65135;
+}
+
+/* Editorial layout classes */
+.grid-editorial {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+/* Hide default cursor on desktop for custom interactives if needed, or stick to default clean cursor pointer */
+.interactive-element:hover {
+  cursor: pointer;
+}
+
+/* Custom grid-dot pattern background */
+.bg-grid-dots {
+  background-image: radial-gradient(rgba(18, 24, 36, 0.08) 1.2px, transparent 1.2px);
+  background-size: 24px 24px;
+}
+
+/* Custom interactive glowing card borders */
+.glow-card {
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+
+
+/* Hide scrollbar utility class */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+
